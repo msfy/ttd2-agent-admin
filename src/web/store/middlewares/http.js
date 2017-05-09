@@ -23,7 +23,7 @@ export default function httpMiddleware({ dispatch }) {
       url,
       params,
       data,
-      timeout: 5000,
+      timeout: 20000,
     })
 
     promise.then(

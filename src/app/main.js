@@ -18,7 +18,7 @@ const app = express()
 
 const { port } = conf
 
-const jsonParser = bodyParser.json({ limit: '2mb' })
+const jsonParser = bodyParser.json({ limit: '5mb' })
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 // const RedisStore = connectRedis(session)
 
