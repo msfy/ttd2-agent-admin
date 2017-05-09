@@ -1,0 +1,70 @@
+{
+  "name": "ttd2-agent-admin",
+  "version": "1.0.0",
+  "description": "ttd2-agent-admin",
+  "main": "index.js",
+  "scripts": {
+    "dev:app": "nodemon -e js,jsx -w src/app -x node_modules/.bin/babel-node --presets=env,stage-0,react src/app/main.js",
+    "dev:web": "babel-node --presets=env,stage-0 node_modules/.bin/webpack-dev-server --hot --inline --config webpack.config.js",
+    "build:app": "NODE_ENV=production babel-node --presets=env,stage-0 node_modules/.bin/webpack --config webpack.config.server.js",
+    "build:web": "NODE_ENV=production babel-node --presets=env,stage-0 node_modules/.bin/webpack --optimize-minimize"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meis5/ms-ui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meis5/ms-ui/issues"
+  },
+  "homepage": "https://github.com/meis5/ms-ui#readme",
+  "dependencies": {
+    "accept-language": "^3.0.15",
+    "ali-oss": "^4.8.0",
+    "axios": "^0.16.1",
+    "body-parser": "^1.17.1",
+    "chroma-js": "^1.3.3",
+    "co": "^4.6.0",
+    "compression": "^1.6.2",
+    "connect-redis": "^3.2.0",
+    "cors": "^2.8.3",
+    "debug": "^2.6.6",
+    "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "moment": "^2.18.1",
+    "multer": "^1.3.0",
+    "mysql2": "^1.2.0",
+    "pm2": "^2.4.6",
+    "react": "^15.5.4",
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "redis": "^2.7.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+    "regenerator-runtime": "^0.10.5",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.4.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "nodemon": "^1.11.0",
+    "webpack": "^2.4.1",
+    "webpack-bundle-analyzer": "^2.4.0",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
