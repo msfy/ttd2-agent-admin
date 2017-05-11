@@ -4,10 +4,10 @@
   "description": "ttd2-agent-admin",
   "main": "index.js",
   "scripts": {
-    "dev:app": "nodemon -e js,jsx -w src/app -x node_modules/.bin/babel-node --presets=env,stage-0,react src/app/main.js",
-    "dev:web": "babel-node --presets=env,stage-0 node_modules/.bin/webpack-dev-server --hot --inline --config webpack.config.js",
-    "build:app": "NODE_ENV=production babel-node --presets=env,stage-0 node_modules/.bin/webpack --config webpack.config.server.js",
-    "build:web": "NODE_ENV=production babel-node --presets=env,stage-0 node_modules/.bin/webpack --optimize-minimize"
+    "dev:app": "nodemon -e js,jsx -w src\\app -x node_modules\\.bin\\babel-node --presets=env,stage-0,react src\\app\\main.js",
+    "dev:web": "babel-node --presets=env,stage-0 node_modules\\webpack-dev-server\\bin\\webpack-dev-server.js --hot --inline --config webpack.config.js",
+    "build:app": "cross-env NODE_ENV=production babel-node --presets=env,stage-0 node_modules\\webpack\\bin\\webpack.js --config webpack.config.server.js",
+    "build:web": "cross-env NODE_ENV=production babel-node --presets=env,stage-0 node_modules\\webpack\\bin\\webpack.js --optimize-minimize"
   },
   "repository": {
     "type": "git",
@@ -57,6 +57,7 @@
     "babel-preset-env": "^1.4.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^4.0.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
