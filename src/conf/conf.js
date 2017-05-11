@@ -3,7 +3,7 @@ const env = process.env.NODE_ENV || 'development'
 const development = {
   env,
   port: 8885,
-  publicPath: 'http://localhost:9994',
+  publicPath: 'http://localhost:8884',
   resourcesPath: 'cdn.bootcss.com',
 }
 

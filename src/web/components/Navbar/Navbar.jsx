@@ -3,7 +3,8 @@ import { Link, Route } from 'react-router-dom'
 import { Navbar, Nav, NavDropdown, MenuItem, NavItem } from 'react-bootstrap'
 
 export default class NavBar extends PureComponent {
-  logout = () => {
+  logout = e => {
+    e.preventDefault()
     this.props.logout()
   }
 
@@ -12,7 +13,6 @@ export default class NavBar extends PureComponent {
   }
 
   render() {
-    const { isLogin, username, realname, nickname } = this.props.portal
     return (
       <Navbar collapseOnSelect>
         <Navbar.Header>
@@ -28,15 +28,9 @@ export default class NavBar extends PureComponent {
             <li><Link to="/playerRecharges">玩家充值</Link></li>
             <li><Link to="/analytics">信息总计</Link></li>
           </ul>
-          <Nav pullRight>
-            {
-              isLogin ? (
-                <NavDropdown title={`${nickname || realname || username || ''}`} id="basic-nav-dropdown">
-                  <MenuItem onSelect={this.logout}>退出登录</MenuItem>
-                </NavDropdown>
-              ) : <NavItem onClick={this.handleClick} href="/portal">登录/注册</NavItem>
-            }
-          </Nav>
+          <ul className="nav navbar-nav navbar-right">
+            <li><a href="/" onClick={this.logout}>退出</a></li>
+          </ul>
         </Navbar.Collapse>
       </Navbar>
     )

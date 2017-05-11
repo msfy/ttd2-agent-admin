@@ -1,9 +1,12 @@
-import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
-export default class C extends PureComponent {
-  render() {
-    return (
-      <div>Home</div>
-    )
-  }
-}
+import Component from './Home.jsx'
+
+const mapStateToProps = state => ({
+  portal: state.portal,
+})
+
+export default withRouter(
+  connect(mapStateToProps)(Component),
+)

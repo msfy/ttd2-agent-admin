@@ -38,7 +38,7 @@ export default class Router extends Component {
         <Loading />
         <Exception />
         <Route exact path="/portal" component={PortalRoute} />
-        <PrivateRoute exact path="/" portal={this.props.portal} component={PlayerRechargesRoute} />
+        <PrivateRoute exact path="/" portal={this.props.portal} component={HomeRoute} />
         <PrivateRoute exact path="/userInfo" portal={this.props.portal} component={UserInfoRoute} />
         <PrivateRoute exact path="/agentRecharges" portal={this.props.portal} component={AgentRechargesRoute} />
         <PrivateRoute exact path="/playerRecharges" portal={this.props.portal} component={PlayerRechargesRoute} />

@@ -73,21 +73,9 @@ export default class C extends PureComponent {
               />
             </Col>
           </FormGroup>
-
           <FormGroup>
             <Col smOffset={2} sm={10}>
-              <Checkbox
-                onChange={this.handleChange('isLoginKept')}
-                checked={this.state.isLoginKept}
-              >
-                记住登录
-              </Checkbox>
-            </Col>
-          </FormGroup>
-
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Button type="submit">
+              <Button style={{ width: '100%' }} bsStyle="success" type="submit">
                 登录
               </Button>
             </Col>
