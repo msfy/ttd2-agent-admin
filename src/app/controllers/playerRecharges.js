@@ -71,7 +71,7 @@ export default app => {
     const coinsPerRmb = coinsPerRmbResults[0][0].coins_per_rmb
 
     await conn.execute(
-      `INSERT INTO u_userorderinfo (orderid, orderdate, fromid, userid, rmb, gamecoins, orderstatus) VALUES ('${uuid()}', '${moment(new Date()).format('YYYY-MM-DD HH:mm:ss')}', '${agentId}', '${rechargePlayerId}', ${rechargeCoins / coinsPerRmb},${rechargeCoins}, 0)`,
+      `INSERT INTO u_userorderinfo (orderid, orderdate, fromid, userid, rmb, gamecoins, orderstatus) VALUES ('${uuid()}', '${moment(new Date()).format('YYYY-MM-DD HH:mm:ss')}', '${agentId}', '${rechargePlayerId}', ${rechargeCoins / 100},${rechargeCoins}, 0)`,
     )
     const result = await conn.execute(
       `SELECT 

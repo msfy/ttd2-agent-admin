@@ -124,10 +124,30 @@ export default class C extends PureComponent {
           <div className="row" style={{ position: 'relative' }}>
             <div style={{ textAlign: 'center' }}>
               <ButtonGroup>
-                <Button onClick={this.handleStatusCheck([0, 1, 2])} bsStyle={'success'}>全部</Button>
-                <Button onClick={this.handleStatusCheck([1])}>成功</Button>
-                <Button onClick={this.handleStatusCheck([0])}>待处理</Button>
-                <Button onClick={this.handleStatusCheck([2])}>失败</Button>
+                <Button
+                  bsStyle={searchConditions.length === 3 ? 'success' : 'default'}
+                  onClick={this.handleStatusCheck([0, 1, 2])}
+                >
+                  全部
+                </Button>
+                <Button
+                  bsStyle={searchConditions.length === 1 && searchConditions[0] === 1 ? 'success' : 'default'}
+                  onClick={this.handleStatusCheck([1])}
+                >
+                  全部
+                </Button>
+                <Button
+                  bsStyle={searchConditions.length === 1 && searchConditions[0] === 0 ? 'success' : 'default'}
+                  onClick={this.handleStatusCheck([0])}
+                >
+                  全部
+                </Button>
+                <Button
+                  bsStyle={searchConditions.length === 1 && searchConditions[0] === 2 ? 'success' : 'default'}
+                  onClick={this.handleStatusCheck([2])}
+                >
+                  全部
+                </Button>
               </ButtonGroup>
             </div>
           </div>

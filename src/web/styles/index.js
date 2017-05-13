@@ -104,6 +104,7 @@ export default `
 }
 
 .recharge-button-ctn button {
+  font-size: 20px;
   display: block;
   width: 100%;
   border-radius: 0;

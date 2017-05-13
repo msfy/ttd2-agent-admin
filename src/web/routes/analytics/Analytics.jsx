@@ -28,13 +28,12 @@ export default class C extends PureComponent {
   render() {
     const { userid, createtime, phone, certno, realname, status, gamecoins, invitecode, isLogin, totalApplyCoins, totalApplyRmb, totalPlayerApplyRmb, totalPlayerApplyCoins } = this.props.portal
 
-
     return (
       <div className="container" style={{ marginTop: '10px' }}>
         <div className="home-coin-ctn">
           为玩家充值共计：
           <div>
-            {this.props.portal.totalPlayerApplyCoins}
+            {this.props.portal.totalPlayerApplyCoins || 0}
             <span style={{ fontSize: '12px', color: '#999' }}>金币</span>
           </div>
           <div style={{ fontSize: '12px', color: '#999', textAlign: 'right' }}>

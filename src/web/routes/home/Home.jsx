@@ -11,8 +11,8 @@ export default class C extends PureComponent {
           <div>{this.props.portal.gamecoins}</div>
         </div>
         <ul className="nav navbar-nav home-dash-board">
-          <li><Link to="/agentRecharges">申请充值</Link></li>
           <li><Link to="/playerRecharges">玩家充值</Link></li>
+          <li><Link to="/agentRecharges">申请充值</Link></li>
           <li><Link to="/analytics">信息总计</Link></li>
           <li><Link to="/userInfo">个人信息</Link></li>
         </ul>
