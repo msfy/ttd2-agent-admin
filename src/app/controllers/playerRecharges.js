@@ -43,8 +43,8 @@ export default app => {
       [agentId],
     ))[0][0]
 
-    if (Number(rechargeCoins) > oldCoins) {
-      res.status(400).send(`你的金币数为:${oldCoins}, 不足以充值${rechargeCoins}`)
+    if (Number(rechargeCoins) > oldCoins.gamecoins) {
+      res.status(400).send(`你的金币数为:${oldCoins.gamecoins}, 不足以充值${rechargeCoins}`)
       return
     }
 
