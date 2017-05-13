@@ -22,11 +22,11 @@ export default class NavBar extends PureComponent {
     }
     return (
       <div style={style}>
-        <Alert bsStyle="danger" onDismiss={this.handleAlertDismiss}>
-          <h4>错误发生了!</h4>
+        <Alert bsStyle="info" onDismiss={this.handleAlertDismiss}>
+          <h4>亲, 你好!</h4>
           {exception && exception.error && exception.error.response && exception.error.response.data}
           <p style={{ textAlign: 'right', paddingTop: '15px' }}>
-            <Button bsStyle="danger" onClick={this.resolveException}>知道了</Button>
+            <Button bsStyle="info" onClick={this.resolveException}>知道了</Button>
           </p>
         </Alert>
       </div>

@@ -10,8 +10,8 @@ export default app => {
     const account = req.body.user.account
     const password = req.body.user.password
     const result = await conn.execute(
-      'SELECT * FROM `u_account` WHERE `phone` = ? OR `username` = ? OR `realname` = ?',
-      [account, account, account],
+      'SELECT * FROM `u_account` WHERE `phone` = ? OR `username` = ?',
+      [account, account],
     )
     conn.release()
     const users = result[0]
@@ -20,7 +20,22 @@ export default app => {
       req.session.portal = portal
       res.status(200).send({ ...portal, pwd: undefined })
     } else {
-      const portal = { ...users[0], isLogin: true }
+      const coinsCountsResults = await conn.execute(
+        'SELECT sum(payrmb) as totalApplyRmb, sum(gamecoins) as totalApplyCoins FROM `u_agentpayapply` WHERE `userid` = ? AND `status` = ?',
+        [users[0].userid, 1],
+      )
+      const chargesCountsResults = await conn.execute(
+        'SELECT sum(rmb) as totalPlayerApplyRmb, sum(gamecoins) as totalPlayerApplyCoins FROM `u_userorderinfo` WHERE `fromid` = ?',
+        [users[0].userid],
+      )
+      const portal = {
+        ...users[0],
+        isLogin: true,
+        totalApplyRmb: coinsCountsResults[0][0].totalApplyRmb,
+        totalApplyCoins: coinsCountsResults[0][0].totalApplyCoins,
+        totalPlayerApplyRmb: chargesCountsResults[0][0].totalPlayerApplyRmb,
+        totalPlayerApplyCoins: chargesCountsResults[0][0].totalPlayerApplyCoins,
+      }
       req.session.portal = portal
       res.status(200).send({ ...portal, pwd: undefined })
     }
@@ -28,7 +43,7 @@ export default app => {
 
   app.post('/api/logout', (req, res) => {
     const portal = { ...req.session.portal, isLogin: false }
-    req.session.portal = portal
+    req.session.portal = {}
     res.status(200).send(portal)
   })
 

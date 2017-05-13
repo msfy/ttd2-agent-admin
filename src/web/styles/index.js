@@ -3,7 +3,6 @@ export default `
   height: 51px;
   background: rgba(0,0,0,.7);
   border-bottom: 1px solid rgba(0,0,0,.8);
-  margin-bottom: 20px;
   clear: both;
 }
 
@@ -56,6 +55,68 @@ export default `
   text-align: center;
   height: 60px;
   line-height: 60px;
+}
+
+
+
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #dddddd;
+}
+
+.player-recharge-item {
+  margin-bottom: 8px;
+  padding: 5px 0;
+}
+
+.text-hint {
+  color: #999;
+  font-size: 12px;
+}
+
+
+.recharge-button-ctn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.recharge-button-ctn {
+  background-color: #f2f2f2;
+}
+
+.recharge-button-ctn button {
+  display: block;
+  width: 100%;
+  border-radius: 0;
+  height: 50px;
+}
+
+.modal-header .close {
+  font-size: 30px;
+  color: #000000;
+}
+
+.right-menu-icon {
+  font-size: 36px;
 }
 
 `

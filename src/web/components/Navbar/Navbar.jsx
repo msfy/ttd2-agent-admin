@@ -1,6 +1,6 @@
-import React, {PureComponent} from 'react'
-import {Link, Route} from 'react-router-dom'
-import {Navbar, Nav, NavDropdown, MenuItem, NavItem} from 'react-bootstrap'
+import React, { PureComponent } from 'react'
+import { Link, Route } from 'react-router-dom'
+import { Navbar, Nav, NavDropdown, MenuItem, NavItem } from 'react-bootstrap'
 
 export default class NavBar extends PureComponent {
   logout = e => {
@@ -15,7 +15,7 @@ export default class NavBar extends PureComponent {
   render() {
     return (
       <div className="navbar__">
-        <a href="/">控制台</a>
+        <a href="/"><span className="glyphicon glyphicon-home" />&nbsp;控制台</a>
         <a href="/" onClick={this.logout}>退出</a>
       </div>
     )

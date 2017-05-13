@@ -26,25 +26,28 @@ export default class C extends PureComponent {
   }
 
   render() {
-    console.log(this.props.portal)
-    const { userid, createtime, phone, certno, realname, status, gamecoins, invitecode, isLogin } = this.props.portal
+    const { userid, createtime, phone, certno, realname, status, gamecoins, invitecode, isLogin, totalApplyCoins, totalApplyRmb, totalPlayerApplyRmb, totalPlayerApplyCoins } = this.props.portal
+
 
     return (
-      <div className="container agent-info-container">
-        <style>{`
-          .agent-info-container h6 {margin-top: 30px; color: #888; font-size: 14px}
-          .agent-info-container p {color: #444; font-size: 16px}
-        `}</style>
-        <h3>统计信息</h3>
-        <div className="row">
-          <div className="col-12 col-lg-6">
-            <h6>玩家充值统计: </h6>
-            <p>{userid}</p>
+      <div className="container" style={{ marginTop: '10px' }}>
+        <div className="home-coin-ctn">
+          为玩家充值共计：
+          <div>
+            {this.props.portal.totalPlayerApplyCoins}
+            <span style={{ fontSize: '12px', color: '#999' }}>金币</span>
           </div>
-          <div className="col-12 col-lg-6">
-            <h6>加盟商充值统计: </h6>
-            <p>{createtime}</p>
+          <div style={{ fontSize: '12px', color: '#999', textAlign: 'right' }}>
+            折合: {(Number(totalPlayerApplyRmb)).toFixed(2)}</div>
+        </div>
+        <div className="home-coin-ctn" style={{ marginTop: '10px' }}>
+          我的充值统计：
+          <div>
+            {this.props.portal.totalApplyRmb}
+            <span style={{ fontSize: '12px', color: '#999' }}>元</span>
           </div>
+          <div style={{ fontSize: '12px', color: '#999', textAlign: 'right' }}>
+            累计充值成功金币: {this.props.portal.totalApplyCoins}</div>
         </div>
       </div>
     )

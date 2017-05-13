@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default class C extends PureComponent {
   render() {
     return (
-      <div className="container">
+      <div className="container" style={{ marginTop: '10px' }}>
         <div className="home-coin-ctn">
           当前金币数：
           <div>{this.props.portal.gamecoins}</div>
