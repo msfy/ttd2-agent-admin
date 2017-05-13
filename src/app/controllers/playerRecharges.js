@@ -38,14 +38,24 @@ export default app => {
     const { agentId, searchConditions, rechargeCoins, rechargePlayerId } = req.body.recharge
     const conn = await pool.getConnection()
 
+    const oldCoins = (await conn.execute(
+      'SELECT gamecoins from `u_account`WHERE userid = ?',
+      [agentId],
+    ))[0][0]
+
+    if (Number(rechargeCoins) > oldCoins) {
+      res.status(400).send(`没有找到账户ID为 ${rechargePlayerId} 的玩家`)
+      return
+    }
+
     await conn.execute(
       'UPDATE `u_account` SET gamecoins = gamecoins - ? WHERE userid = ?',
-      [rechargeCoins, agentId],
+      [Number(rechargeCoins), agentId],
     )
 
     await conn.execute(
       'UPDATE `u_user` SET gamecoins = gamecoins + ? WHERE playerid = ?',
-      [rechargeCoins, rechargePlayerId],
+      [Number(rechargeCoins), rechargePlayerId],
     )
 
     const coinsPerRmbResults = await conn.execute(
