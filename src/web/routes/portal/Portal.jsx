@@ -5,9 +5,7 @@ import {
   FormGroup,
   FormControl,
   Col,
-  ControlLabel,
   Button,
-  Checkbox,
 } from 'react-bootstrap'
 
 export default class C extends PureComponent {
@@ -37,45 +35,36 @@ export default class C extends PureComponent {
     }
     return (
       <div className="container">
-        <Form
-          onSubmit={this.handleSubmit}
-          horizontal
-          style={{
-            maxWidth: '400px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}
+
+        <Form onSubmit={this.handleSubmit}
+              horizontal style={{
+          marginTop: '40px',
+          maxWidth: '400px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+        }}
         >
+          <div style={{ textAlign: 'center', paddingBottom: '30px' }}>
+            <img src="http://zgamedaer.oss-cn-shanghai.aliyuncs.com/agent-resources/Icon-72.png" alt="" />
+          </div>
           <FormGroup controlId="formHorizontalEmail">
-            <Col componentClass={ControlLabel} sm={2}>
-              账号
-            </Col>
-            <Col sm={10}>
-              <FormControl
-                onChange={this.handleChange('account')}
-                value={this.state.username}
-                type="text"
-                placeholder="账号"
-              />
+            <Col sm={12}>
+              <FormControl bsSize="large" onChange={this.handleChange('account')}
+                           value={this.state.username}
+                           type="text" placeholder="账号" />
             </Col>
           </FormGroup>
 
           <FormGroup controlId="formHorizontalPassword">
-            <Col componentClass={ControlLabel} sm={2}>
-              密码
-            </Col>
-            <Col sm={10}>
-              <FormControl
-                onChange={this.handleChange('password')}
-                value={this.state.password}
-                type="password"
-                placeholder="密码"
-              />
+            <Col sm={12}>
+              <FormControl bsSize="large" onChange={this.handleChange('password')}
+                           value={this.state.password}
+                           type="password" placeholder="密码" />
             </Col>
           </FormGroup>
           <FormGroup>
-            <Col smOffset={2} sm={10}>
-              <Button style={{ width: '100%' }} bsStyle="success" type="submit">
+            <Col sm={12}>
+              <Button style={{ width: '100%' }} bsSize="large" bsStyle="success" type="submit">
                 登录
               </Button>
             </Col>

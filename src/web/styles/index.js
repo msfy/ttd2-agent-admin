@@ -42,10 +42,10 @@ export default `
   display: block;
   float: none;
   border: 1px solid #ddd;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 100%;
-  height: 80px;
-  line-height: 80px;
+  height: 60px;
+  line-height: 60px;
   border-radius: 4px;
 }
 
@@ -54,8 +54,8 @@ export default `
   display: block;
   padding: 0 15px;
   text-align: center;
-  height: 80px;
-  line-height: 80px;
+  height: 60px;
+  line-height: 60px;
 }
 
 `

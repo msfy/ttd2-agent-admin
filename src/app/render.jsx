@@ -29,8 +29,8 @@ export default param => {
     <div id="root">${content}</div>
 </body>
 <script>window.__PRELOADED_STATE__ = ${JSON.stringify(state)}</script>
-<script src="${publicPath}/common/common.js"></script>
-<script src="${publicPath}/index/index.js"></script>
+<script src="${publicPath}/common/common.js?v=${new Date()}"></script>
+<script src="${publicPath}/index/index.js?v=${new Date()}"></script>
 </html>
 `
 }
