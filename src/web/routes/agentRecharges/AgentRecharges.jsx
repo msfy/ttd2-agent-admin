@@ -134,19 +134,19 @@ export default class C extends PureComponent {
                   bsStyle={searchConditions.length === 1 && searchConditions[0] === 1 ? 'success' : 'default'}
                   onClick={this.handleStatusCheck([1])}
                 >
-                  全部
+                  成功
                 </Button>
                 <Button
                   bsStyle={searchConditions.length === 1 && searchConditions[0] === 0 ? 'success' : 'default'}
                   onClick={this.handleStatusCheck([0])}
                 >
-                  全部
+                  待处理
                 </Button>
                 <Button
                   bsStyle={searchConditions.length === 1 && searchConditions[0] === 2 ? 'success' : 'default'}
                   onClick={this.handleStatusCheck([2])}
                 >
-                  全部
+                  失败
                 </Button>
               </ButtonGroup>
             </div>
