@@ -44,7 +44,7 @@ export default app => {
     ))[0][0]
 
     if (Number(rechargeCoins) > oldCoins) {
-      res.status(400).send(`没有找到账户ID为 ${rechargePlayerId} 的玩家`)
+      res.status(400).send(`你的金币数为:${oldCoins}, 不足以充值${rechargeCoins}`)
       return
     }
 
