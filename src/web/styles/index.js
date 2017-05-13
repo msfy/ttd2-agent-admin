@@ -119,4 +119,12 @@ export default `
   font-size: 36px;
 }
 
+.detail-table td {
+  padding: 5px 0;
+}
+
+.detail-table td:first-child {
+  color: #999;
+}
+
 `

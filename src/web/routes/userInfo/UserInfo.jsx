@@ -1,9 +1,5 @@
 import React, { PureComponent } from 'react'
-
-type
-Props = {
-  portal: any,
-}
+import moment from 'moment'
 
 export default class C extends PureComponent {
   state = {
@@ -11,8 +7,6 @@ export default class C extends PureComponent {
     password: '',
     isLoginKept: false,
   }
-
-  props: Props
 
   handleChange = key => e => {
     this.setState({
@@ -26,7 +20,6 @@ export default class C extends PureComponent {
   }
 
   render() {
-    console.log(this.props.portal)
     const { userid, createtime, phone, certno, realname, status, gamecoins, invitecode, isLogin } = this.props.portal
 
     return (
@@ -43,7 +36,7 @@ export default class C extends PureComponent {
           </div>
           <div className="col-12 col-lg-6">
             <h6>加盟商注册时间: </h6>
-            <p>{createtime}</p>
+            <p>{moment(createtime).format('YYYY-MM-DD HH:mm:ss')}</p>
           </div>
           <div className="col-12 col-lg-6">
             <h6>加盟商身手机: </h6>
@@ -60,14 +53,6 @@ export default class C extends PureComponent {
           <div className="col-12 col-lg-6">
             <h6>加盟商状态: </h6>
             <p>{`${status}` === '1' ? '正常' : '异常'}</p>
-          </div>
-          <div className="col-12 col-lg-6">
-            <h6>当前金币数: </h6>
-            <p>{gamecoins}</p>
-          </div>
-          <div className="col-12 col-lg-6">
-            <h6>我的邀请码: </h6>
-            <p>{invitecode}</p>
           </div>
         </div>
       </div>

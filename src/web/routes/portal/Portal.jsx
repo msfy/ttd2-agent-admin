@@ -41,7 +41,7 @@ export default class C extends PureComponent {
           horizontal style={{ marginTop: '40px', maxWidth: '400px', marginLeft: 'auto', marginRight: 'auto' }}
         >
           <div style={{ textAlign: 'center', paddingBottom: '30px' }}>
-            <img src="http://zgamedaer.oss-cn-shanghai.aliyuncs.com/agent-resources/Icon-72.png" alt="" />
+            <img src="//zgamedaer.oss-cn-shanghai.aliyuncs.com/agent-resources/login-001.jpg" alt="" />
           </div>
           <FormGroup controlId="formHorizontalEmail">
             <Col sm={12}>

@@ -6,7 +6,7 @@ export default app => {
       render({
         req,
         res,
-        title: '',
+        title: '控制台',
         location: req.url,
       }),
     )
@@ -17,7 +17,7 @@ export default app => {
       render({
         req,
         res,
-        title: '梅花UI组件',
+        title: '登录',
         location: req.url,
       }),
     )
@@ -28,7 +28,18 @@ export default app => {
       render({
         req,
         res,
-        title: '梅花UI组件',
+        title: '加盟商充值',
+        location: req.url,
+      }),
+    )
+  })
+
+  app.get('/userInfo', (req, res) => {
+    res.send(
+      render({
+        req,
+        res,
+        title: '加盟商信息',
         location: req.url,
       }),
     )
@@ -39,7 +50,7 @@ export default app => {
       render({
         req,
         res,
-        title: '梅花UI组件',
+        title: '玩家充值',
         location: req.url,
       }),
     )
@@ -50,7 +61,7 @@ export default app => {
       render({
         req,
         res,
-        title: '梅花UI组件',
+        title: '统计信息',
         location: req.url,
       }),
     )

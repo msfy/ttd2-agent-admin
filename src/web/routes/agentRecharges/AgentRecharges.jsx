@@ -6,7 +6,6 @@ import {
   FormGroup,
   FormControl,
   Col,
-  ControlLabel,
   ButtonGroup,
   Button,
 } from 'react-bootstrap'
@@ -237,46 +236,58 @@ export default class C extends PureComponent {
               <Modal.Title id="contained-modal-title-lg">充值详情</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <h6>记录详情</h6>
               {
                 detailId ?
-                  <div className="row">
-                    <div className="col-12 col-lg-6">
-                      <h6>充值ID: </h6>
-                      <p>{detail.userid}</p>
-                    </div>
-                    <div className="col-12 col-lg-6">
-                      <h6>申请日期: </h6>
-                      <p>{detail.applydate}</p>
-                    </div>
-                    <div className="col-12 col-lg-6">
-                      <h6>充值金额: </h6>
-                      <p>{detail.payrmb}</p>
-                    </div>
-                    <div className="col-12 col-lg-6">
-                      <h6>金币数量: </h6>
-                      <p>{detail.gamecoins}</p>
-                    </div>
-                    <div className="col-12 col-lg-6">
-                      <h6>充值状态: </h6>
-                      <p>{statusMessages[detail.status]}</p>
-                    </div>
-                    <div className="col-12 col-lg-6">
-                      <h6>充值备注: </h6>
-                      <p>{detail.remark}</p>
-                    </div>
-                    <div className="col-12 col-lg-12">
-                      <h6>转账截图: </h6>
-                      <p style={{ overflow: 'auto' }}>
-                        <img src={`${detail.uploadimgurl}`} alt="" />
-                      </p>
-                    </div>
-                  </div> : undefined
+                  <table className="detail-table">
+                    <tr>
+                      <td width="40%">
+                        充值时间:
+                      </td>
+                      <td>
+                        {moment(detail.applydate).format('YYYY-MM-DD HH:mm:ss')}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>充值金额:</td>
+                      <td>
+                        {detail.payrmb}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>金币数量:</td>
+                      <td>
+                        {detail.gamecoins}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>充值状态:</td>
+                      <td>
+                        {statusMessages[detail.status]}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>备注:</td>
+                      <td>
+                        {detail.remark}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>转账截图:</td>
+                      <td />
+                    </tr>
+                  </table> : undefined
               }
             </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={this.hideModal('detail')}>取消</Button>
-            </Modal.Footer>
+            <div style={{ padding: '0 15px 15px 15px' }}>
+              {
+                detail ?
+                  <img
+                    style={{ height: '320px' }}
+                    src={`${detail.uploadimgurl}`}
+                    alt=""
+                  /> : undefined
+              }
+            </div>
           </Modal>
           <style>{`
           .agent-recharge-table-container {overflow: auto}
@@ -285,7 +296,7 @@ export default class C extends PureComponent {
         `}</style>
           {
             agentRecharges.map(v => {
-              const { id, applydate, payrmb, remark, status } = v
+              const { id, applydate, payrmb, status } = v
               let statusIndicator = '#f0ad4e'
               if (status === 1) {
                 statusIndicator = '#5cb85c'
@@ -306,6 +317,14 @@ export default class C extends PureComponent {
                     <div className="fl" style={{ width: '50%', textAlign: 'right' }}>
                       <div>
                         <span style={{ fontSize: '12px', color: statusIndicator }}>{statusMessages[status]}</span>
+                      </div>
+                      <div>
+                        <a
+                          onClick={this.handleClickDetail(id)}
+                          style={{ fontSize: '12px', color: '#5cb85c' }}
+                        >
+                          详情
+                        </a>
                       </div>
                     </div>
                   </div>
