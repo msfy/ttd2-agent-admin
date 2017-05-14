@@ -23,9 +23,10 @@ export default app => {
       ON u_userorderinfo.userid = u_user.playerid
       WHERE u_userorderinfo.fromid = ${agentId} 
       AND u_userorderinfo.userid LIKE '%${searchConditions}%'
-      OR u_user.nickname LIKE '%${searchConditions}%'
+      
       ORDER BY orderdate DESC`,
     )
+    // OR u_user.nickname LIKE '%${searchConditions}%'
     conn.release()
     const recharges = result[0]
     res.send(recharges)
