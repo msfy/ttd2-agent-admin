@@ -183,7 +183,7 @@ export default class C extends PureComponent {
           <div>
             {
               playerRecharges.map(v => {
-                const { orderid, headimgurl, nickname, orderdate, gamecoins, userid } = v
+                const { orderid, headimgurl, nickname, orderdate, gamecoins, playerid } = v
                 return (
                   <div key={orderid} className="cf border-bottom player-recharge-item">
                     <div className="fl">
@@ -201,7 +201,7 @@ export default class C extends PureComponent {
                         <span className="text-hint">
                           账号:
                         </span>
-                        {userid}
+                        {playerid}
                       </div>
                     </div>
                     <div className="fr">
